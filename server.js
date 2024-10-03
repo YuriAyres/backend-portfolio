@@ -1,9 +1,12 @@
 require('dotenv').config();
+const cors = require('cors');
 const express = require('express');
 const { getRepositoriesWithReadme } = require('./request');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(cors());
 
 app.get('/api/repos', async (req, res) => {
     try {
