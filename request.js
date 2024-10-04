@@ -2,7 +2,6 @@ require('dotenv').config();
 const axios = require('axios');
 const { GITHUB_USERNAME, GITHUB_TOKEN } = require('./config');
 
-
 async function getRepositoriesWithReadme() {
     try {
         console.log('Username:', GITHUB_USERNAME); 
@@ -14,7 +13,10 @@ async function getRepositoriesWithReadme() {
             }
         });
 
-        const repos = response.data;
+        let repos = response.data;
+
+        // Filtrar repositórios que NÃO possuem a topic 'ignore'
+        repos = repos.filter(repo => !repo.topics.includes('ignore'));
 
         const reposWithReadme = await Promise.all(
             repos.map(async (repo) => {
