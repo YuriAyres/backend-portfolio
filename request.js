@@ -41,6 +41,7 @@ async function getRepositoriesWithReadme() {
                         name: repo.name,
                         description: readmeResponse.data,
                         image_url: imageUrl,
+                        html_url: repo.html_url
                     };
                 } catch (readmeError) {
                     console.error(`Erro ao obter README do repositório ${repo.name}:`, readmeError.message);
@@ -49,6 +50,7 @@ async function getRepositoriesWithReadme() {
                         name: repo.name,
                         description: 'README não encontrado',
                         image_url: 'https://via.placeholder.com/150',
+                        html_url: repo.html_url  
                     };
                 }
             })
