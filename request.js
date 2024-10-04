@@ -1,5 +1,7 @@
+require('dotenv').config();
 const axios = require('axios');
 const { GITHUB_USERNAME, GITHUB_TOKEN } = require('./config');
+
 
 async function getRepositoriesWithReadme() {
     try {

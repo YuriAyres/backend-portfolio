@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
